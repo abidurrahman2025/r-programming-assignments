@@ -3,3 +3,6 @@ myMean <- function(assignment2) {
   return(sum(assignment2) / length(assignment2))
 }
 myMean(assignment2)
+
+#verification of the result
+myMean(assignment2)==mean(assignment2)
