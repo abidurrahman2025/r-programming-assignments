@@ -8,12 +8,6 @@ finaldecision <- c(0, 1, 0, 1, 0, 1, 0, 1, 1, 1)
 # Create the Data Frame
 hospital_data <- data.frame(Freq, bloodp, first, second, finaldecision)
 
-# Convert categorical variables to factors for better labeling
-hospital_data$first <- factor(hospital_data$first, levels = c(0, 1), labels = c("Good", "Bad"))
-hospital_data$second <- factor(hospital_data$second, levels = c(0, 1), labels = c("Low", "High"))
-hospital_data$finaldecision <- factor(hospital_data$finaldecision, levels = c(0, 1), labels = c("Low", "High"))
-
-
 
 # Set up a side-by-side plotting area (1 row, 2 columns)
 par(mfrow = c(1, 2))
@@ -44,7 +38,7 @@ par(mfrow = c(2, 4), mar = c(4, 4, 2, 1), oma = c(0, 0, 2, 0))
 boxplot(bloodp ~ first, data = hospital_data, 
         main = "BP by First Assessment",
         xlab = "First Assessment", ylab = "Blood Pressure",
-        col = c("lightgreen", "lightcoral"), ylim = c(0, 250))
+        col = c("lightgreen", "lightcoral"), ylim = c(0, 250), na.rm = T)
 
 # Blood pressure by second assessment
 boxplot(bloodp ~ second, data = hospital_data,
@@ -65,27 +59,23 @@ boxplot(hospital_data$Freq, main = "Frequency of Visits",
 # HISTOGRAMS
 # Blood pressure histogram
 hist(hospital_data$bloodp, main = "Blood Pressure Distribution",
-     xlab = "Blood Pressure", ylab = "Frequency",
+     xlab = "Blood Pressure", ylab = "Count",
      col = "lightblue", border = "black", breaks = 5)
 
 # First assessment distribution (barplot for categorical)
-first_counts <- table(hospital_data$first, useNA = "ifany")
-barplot(first_counts, main = "First Assessment Distribution",
-        xlab = "Assessment", ylab = "Count",
-        col = c("lightgreen", "lightcoral", "gray"),
-        names.arg = c("Good", "Bad", "Missing"))
+hist(hospital_data$first, main = "First Assessment Distribution",
+     xlab = "Assessment", ylab = "Count",
+     col = "lightgreen", border = "lightcoral", breaks = 5)
 
 # Second assessment distribution
-second_counts <- table(hospital_data$second)
-barplot(second_counts, main = "Second Assessment Distribution",
-        xlab = "Assessment", ylab = "Count",
-        col = c("lightblue", "lightyellow"))
+hist(hospital_data$second, main = "Second Assessment Distribution",
+     xlab = "Assessment", ylab = "Count",
+     col = "lightblue", border = "lightyellow", breaks = 5)
 
 # Final decision distribution
-final_counts <- table(hospital_data$finaldecision)
-barplot(final_counts, main = "Final Decision Distribution",
-        xlab = "Decision", ylab = "Count",
-        col = c("lightgray", "lightpink"))
+hist(hospital_data$finaldecision, main = "Final Decision Distribution",
+     xlab = "Decision", ylab = "Count",
+     col = "lightgray", border = "lightpink", breaks = 5)
 
 # Add overall title
 title("Analysis of Patient Data: Blood Pressure & Medical Assessments", outer = TRUE)
