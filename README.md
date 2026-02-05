@@ -38,8 +38,8 @@ The corrected code is uploaded as [Module # 3 Assignment.R](https://github.com/a
 # Module # 4 Assignment
 The R code starts by creating variables for each part of the hospital data, including visit frequency, blood pressure, first and second assessments, and the final decision. These variables are combined into one data frame. 
 
-The par(mfrow = …) function is used to control how multiple graphs are displayed at the same time. First, a boxplot and a histogram are created side-by-side. The boxplot compares blood pressure for low and high final decisions, and the histogram shows how often different visit frequencies occur. 
+The par(mfrow = …) function is used to control how multiple graphs are displayed at the same time. First, a boxplot and a histogram are created side-by-side [(Rplot1.png)](https://github.com/abidurrahman2025/r-programming-assignments/blob/c82f2fd2dfc3230f5ebd09b08dc65f2d499a6c49/Rplot1.png). The boxplot compares blood pressure for low and high final decisions, and the histogram shows how often different visit frequencies occur. 
 
-Next, a larger set of plots is created using a 2×4 layout. The top row contains boxplots comparing blood pressure to each assessment, while the bottom row shows histograms that display the distributions of blood pressure and the assessment outcomes. The plotting settings are reset at the end
+Next, a larger set of plots is created using a 2×4 layout[(Rplot2.png)](https://github.com/abidurrahman2025/r-programming-assignments/blob/c82f2fd2dfc3230f5ebd09b08dc65f2d499a6c49/Rplot2.png). The top row contains boxplots comparing blood pressure to each assessment, while the bottom row shows histograms that display the distributions of blood pressure and the assessment outcomes. The plotting settings are reset at the end
 
 The corrected code is uploaded as [Module # 4 Assignment.R](https://github.com/abidurrahman2025/r-programming-assignments/blob/a08a3b45b5fb3704fc563580ebfb54d285e8ce79/Module%20%23%204%20Assignment.R)
