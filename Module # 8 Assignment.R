@@ -1,3 +1,4 @@
+# Step 1
 #Import dataset
 students <- read.table(file.choose(), header = TRUE, sep = ",")
 students
@@ -6,11 +7,15 @@ students
 if(!require(plyr)){install.packages("plyr")}
 library(plyr)
 students_gendered_mean = ddply(students,"Sex",transform,Grade.Average=mean(Grade))
+
+# Step 2
 write.table(students_gendered_mean, "Students_Gendered_Mean")
 write.table(students_gendered_mean,"Students_Gendered_Mean",sep=",")
 
 #Subset rows where the name contains the letter 'i'
 i_students <- subset(students, grepl("i", students$Name, ignore.case=T))
 
+# Step 3
 #Write the filtered data set and convert it to CSV
 write.table(i_students,"DataSubset",sep=",")
+
