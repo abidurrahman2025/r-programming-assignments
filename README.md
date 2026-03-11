@@ -43,3 +43,25 @@ The par(mfrow = …) function is used to control how multiple graphs are display
 Next, a larger set of plots is created using a 2×4 layout[(Rplot2.png)](https://github.com/abidurrahman2025/r-programming-assignments/blob/c82f2fd2dfc3230f5ebd09b08dc65f2d499a6c49/Rplot2.png). The top row contains boxplots comparing blood pressure to each assessment, while the bottom row shows histograms that display the distributions of blood pressure and the assessment outcomes. The plotting settings are reset at the end
 
 The corrected code is uploaded as [Module # 4 Assignment.R](https://github.com/abidurrahman2025/r-programming-assignments/blob/a08a3b45b5fb3704fc563580ebfb54d285e8ce79/Module%20%23%204%20Assignment.R)
+
+
+# Module # 5 Assignment
+Matrix A is created with matrix(1:100, nrow = 10), which produces a 10 × 10 square matrix. Although it is square, it is singular, meaning it does not have an inverse. This happens because its rows and columns are linearly dependent, so the matrix does not have full rank. As a result, its determinant is 0, and a matrix with determinant 0 cannot be inverted. 
+
+When solve(A) is run, R attempts to compute the inverse using LU decomposition but fails due to a zero pivot element (U[6,6] = 0). This confirms the matrix is singular, producing the error:
+
+"Lapack routine dgesv: system is exactly singular: U[6,6] = 0"
+
+The command det(A) returns 0, which confirms that the matrix is singular.
+
+Matrix B, defined as matrix(1:1000, nrow = 10), produces a 10 × 100 matrix, which is not square. Both the inverse and determinant are only defined for square matrices. An inverse requires the matrix to multiply with another matrix to produce the identity matrix, which is only possible if the matrix is square. Similarly, determinants are only defined for square matrices.
+
+Therefore:
+
+solve(B) returns: "'a' (10 x 100) must be square"
+
+det(B) returns: "'x' must be a square matrix"
+
+The tryCatch function is used to capture these errors so the program continues running instead of stopping. It also makes it easier to read the error message.
+
+The code is uploaded as [Module # 5 Assignment.R](https://github.com/abidurrahman2025/r-programming-assignments/blob/ad2ecf70908a84fefe62d1b09f572c4ab1fc42fd/Module%20%23%205%20Assignment.R)
