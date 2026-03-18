@@ -5,8 +5,8 @@ head(mtcars)
 # Scatter plot
 plot(mtcars$wt, mtcars$mpg,
      main = "Base: mpg vs. wt",
-     xlab = "Weight (1000 lbs)",
-     ylab = "Miles per gallon")
+     xlab = "Weight (lbs)",
+     ylab = "Fuel Consumption (mpg)")
 
 # Histogram
 hist(mtcars$hp,
