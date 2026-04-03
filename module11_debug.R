@@ -1,9 +1,8 @@
-tukey.outlier <- function(x) {
-  q <- quantile(x, probs = c(0.25, 0.75), na.rm = TRUE)
-  iqr <- diff(q)
-  lower <- q[1] - 1.5 * iqr
-  upper <- q[2] + 1.5 * iqr
-  x < lower | x > upper
+tukey.outlier <- function(x, k = 1.5) {
+  q1 <- quantile(x, 0.25, na.rm = TRUE)
+  q3 <- quantile(x, 0.75, na.rm = TRUE)
+  iqr <- q3 - q1
+  x < (q1 - k * iqr) | x > (q3 + k * iqr)
 }
 corrected_tukey <- function(x) {
   outliers <- array(TRUE, dim = dim(x))
